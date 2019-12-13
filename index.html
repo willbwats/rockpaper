@@ -11,24 +11,66 @@
         let option = Math.floor(Math.random() * 3 + 1);
 
         switch(option) {
-            case 1: return "Rock"; break;
-            case 2: return "Paper"; break;
-            case 3: return "Scissors"; break;
+            case 1: return "Rock"; 
+            case 2: return "Paper";
+            case 3: return "Scissors"; 
         }
+
     }
     
     function playGame(playerSelection, computerSelection) {
-
+        let result = 4;
+        console.log("Computer: " + computerSelection);
         if (playerSelection.toLowerCase() == "rock") {
+            if (computerSelection == "Rock") {
+                result = 3; //draw
+            } else if (computerSelection == "Paper") {
+                result = 2; //lose
+            } else if (computerSelection == "Scissors") {
+                result = 1; //win
+            }
+        }
+        
+        if (playerSelection.toLowerCase() == "paper") { //UNFINISHED
             if (computerSelection == "Rock") {
                 result = 3;
             } else if (computerSelection == "Paper") {
-                
+                result = 2;
+            } else if (computerSelection == "Scissors") {
+                result = 1;
             }
         }
 
+        if (playerSelection.toLowerCase() == "scissors") { //UNFINISHED
+            if (computerSelection == "Rock") {
+                result = 3;
+            } else if (computerSelection == "Paper") {
+                result = 2;
+            } else if (computerSelection == "Scissors") {
+                result = 1;
+            }
+        }
+
+        switch (result){
+
+            case 1: console.log("You Win!");
+                    break;
+            case 2: console.log("You Lose!");
+                    break;
+            case 3: console.log("Draw!");
+                    break;
+            case 4: console.log("There was a problem.. try again.");
+                    break;
+        }
+
+
+        
     }
-    computerPlay();
+
+    //main loop
+    let userSelection = prompt("Rock, Paper, or Scissors?");
+        computerPlay();
+        playGame(userSelection, computerPlay());
     
     
     
