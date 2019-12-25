@@ -1,23 +1,29 @@
 <!DOCTYPE html>
 <html>
+
 <body>
     Hello
 </body>
-    <script>
-    
-    function computerPlay(){
+<script>
+    let scoreComputer = 0;
+    let scorePlayer = 0;
+
+
+    function computerPlay() {
 
         // Random integer 1-3
         let option = Math.floor(Math.random() * 3 + 1);
-
-        switch(option) {
-            case 1: return "Rock"; 
-            case 2: return "Paper";
-            case 3: return "Scissors"; 
+        switch (option) {
+            case 1:
+                return "Rock";
+            case 2:
+                return "Paper";
+            case 3:
+                return "Scissors";
         }
 
     }
-    
+
     function playGame(playerSelection, computerSelection) {
         let result = 4;
         console.log("Computer: " + computerSelection);
@@ -30,7 +36,7 @@
                 result = 1; //win
             }
         }
-        
+
         if (playerSelection.toLowerCase() == "paper") { //UNFINISHED
             if (computerSelection == "Rock") {
                 result = 1;
@@ -51,27 +57,38 @@
             }
         }
 
-        switch (result){
+        switch (result) {
 
-            case 1: console.log("You Win!");
-                    break;
-            case 2: console.log("You Lose!");
-                    break;
-            case 3: console.log("Draw!");
-                    break;
-            case 4: console.log("There was a problem.. try again.");
-                    break;
+            case 1:
+                console.log("You Win!");
+                scorePlayer += 1;
+                break;
+            case 2:
+                console.log("You Lose!");
+                scoreComputer += 1;
+                break;
+            case 3:
+                console.log("Draw!");
+                break;
+            case 4:
+                console.log("There was a problem.. try again.");
+                break;
         }
 
 
-        
+
     }
 
-    //main loop
-    let userSelection = prompt("Rock, Paper, or Scissors?");
-        computerPlay();
-        playGame(userSelection, computerPlay());
-    
-    
-    </script>
+    function game(numberRounds) {
+        for (i = 0; i < (numberRounds); i++) {
+            let userSelection = prompt("Rock, Paper, or Scissors?");
+            computerPlay();
+            playGame(userSelection, computerPlay());
+        }
+    }
+
+    game(5);
+    console.log("--Score--\n\nComputer: " + scoreComputer + "\nYou: " + scorePlayer);
+</script>
+
 </html>
