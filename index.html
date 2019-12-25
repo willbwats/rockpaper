@@ -33,21 +33,21 @@
         
         if (playerSelection.toLowerCase() == "paper") { //UNFINISHED
             if (computerSelection == "Rock") {
-                result = 3;
-            } else if (computerSelection == "Paper") {
-                result = 2;
-            } else if (computerSelection == "Scissors") {
                 result = 1;
+            } else if (computerSelection == "Paper") {
+                result = 3;
+            } else if (computerSelection == "Scissors") {
+                result = 2;
             }
         }
 
         if (playerSelection.toLowerCase() == "scissors") { //UNFINISHED
             if (computerSelection == "Rock") {
-                result = 3;
-            } else if (computerSelection == "Paper") {
                 result = 2;
-            } else if (computerSelection == "Scissors") {
+            } else if (computerSelection == "Paper") {
                 result = 1;
+            } else if (computerSelection == "Scissors") {
+                result = 3;
             }
         }
 
@@ -71,13 +71,6 @@
     let userSelection = prompt("Rock, Paper, or Scissors?");
         computerPlay();
         playGame(userSelection, computerPlay());
-    
-    
-    
-    
-    
-    
-    
     
     
     </script>
